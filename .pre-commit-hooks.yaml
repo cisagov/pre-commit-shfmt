@@ -1,0 +1,7 @@
+---
+- id: shfmt
+  name: Format bash shell scripts
+  description: Format bash scripts to a canonical format using the shfmt tool.
+  entry: hooks/shfmt.sh
+  language: script
+  types: [shell]
