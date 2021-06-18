@@ -4,4 +4,5 @@
   description: Format bash scripts to a canonical format using the shfmt tool.
   entry: hooks/shfmt.sh
   language: script
-  types: [shell]
+  always_run: true
+  pass_filenames: false

@@ -10,12 +10,26 @@ then
   exit 1
 fi
 
-error=1
+files_modified=0
+shfmt_output=()
 
-while (( "$#" ))
+# Call shfmt with any optional arguments in addition to the arguments to list
+# any files that need changes, write changes to files, and process files starting
+# in the current directory.
+while read -r line
 do
-  echo "$1"
-  shift
-done
+  shfmt_output+=("$line")
+done < <(shfmt "$@" -l -w .)
 
-exit "$error"
+files_modified=${#shfmt_output[@]}
+
+if [[ $files_modified -ne 0 ]]
+then
+  for file in "${shfmt_output[@]}"
+  do
+    echo "$file"
+  done
+
+  echo "$files_modified file(s) modified"
+  exit 1
+fi
