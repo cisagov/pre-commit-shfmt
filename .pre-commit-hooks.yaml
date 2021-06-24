@@ -5,3 +5,5 @@
   entry: hooks/shfmt.sh
   language: script
   types: [shell]
+  # Default options to list files changed and write changes to files
+  args: ["-l", "-w"]
