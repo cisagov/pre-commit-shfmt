@@ -11,15 +11,17 @@ then
 fi
 
 files_modified=0
+# Default options to list files changed and write changes to files
+base_options=("-l" "-w")
+
+# Combine the base options with what is passed in from pre-commit
+shfmt_options=("${base_options[@]}" "$@")
 shfmt_output=()
 
-# Call shfmt with any optional arguments in addition to the arguments to list
-# any files that need changes, write changes to files, and process files starting
-# in the current directory.
 while read -r line
 do
   shfmt_output+=("$line")
-done < <(shfmt "$@" -l -w .)
+done < <(shfmt "${shfmt_options[@]}")
 
 files_modified=${#shfmt_output[@]}
 
