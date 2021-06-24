@@ -16,7 +16,7 @@ using the [`shfmt`](https://github.com/mvdan/sh#shfmt) tool.
 ```yaml
 repos:
   - repo: https://github.com/cisagov/pre-commit-shfmt
-    rev: <version> # Version from https://github.com/cisagov/pre-commit-shfmt/releases
+    rev: v0.0.1
     hooks:
       - id: shfmt
         args:

@@ -6,12 +6,12 @@ set -o nounset
 set -o errexit
 set -o pipefail
 
-VERSION_FILE=src/version.txt
+VERSION_FILE=config/version.txt
 README_FILE=README.md
 
 HELP_INFORMATION="bump_version.sh (show|major|minor|patch|prerelease|build|finalize)"
 
-old_version=$(sed -n "s/^__version__ = \"\(.*\)\"$/\1/p" $VERSION_FILE)
+old_version=$(<"$VERSION_FILE")
 
 if [ $# -ne 1 ]
 then
