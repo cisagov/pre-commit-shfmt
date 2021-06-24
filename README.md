@@ -2,22 +2,27 @@
 
 [![GitHub Build Status](https://github.com/cisagov/pre-commit-shfmt/workflows/build/badge.svg)](https://github.com/cisagov/pre-commit-shfmt/actions)
 
-This is a generic skeleton project that can be used to quickly get a
-new [cisagov](https://github.com/cisagov) GitHub project started.
-This skeleton project contains [licensing information](LICENSE), as
-well as [pre-commit hooks](https://pre-commit.com) and
-[GitHub Actions](https://github.com/features/actions) configurations
-appropriate for the major languages that we use.
+This is a [pre-commit](https://pre-commit.com) hook to format shell scripts
+using the [`shfmt`](https://github.com/mvdan/sh#shfmt) tool.
 
-In many cases you will instead want to use one of the more specific
-skeleton projects derived from this one.
+## Available Hooks ##
 
-## New Repositories from a Skeleton ##
+| Hook name | Description                                      |
+| --------- | ------------------------------------------------ |
+| `shfmt`   | Format shell script files with the `shfmt` tool. |
 
-Please see our [Project Setup guide](https://github.com/cisagov/development-guide/tree/develop/project_setup)
-for step-by-step instructions on how to start a new repository from
-a skeleton. This will save you time and effort when configuring a
-new repository!
+## Usage ##
+
+```yaml
+repos:
+  - repo: https://github.com/cisagov/pre-commit-shfmt
+    rev: <version> # Version from https://github.com/cisagov/pre-commit-shfmt/releases
+    hooks:
+      - id: shfmt
+        args:
+          - -i
+          - '2'
+```
 
 ## Contributing ##
 
