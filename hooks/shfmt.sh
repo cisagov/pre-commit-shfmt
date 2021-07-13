@@ -12,10 +12,12 @@ fi
 
 shfmt_output=()
 
+# Default options to list files changed and write changes to files are included in
+# the call to shfmt.
 while read -r line
 do
   shfmt_output+=("$line")
-done < <(shfmt "$@")
+done < <(shfmt -l -w "$@")
 
 if [[ ${#shfmt_output[@]} -ne 0 ]]
 then
