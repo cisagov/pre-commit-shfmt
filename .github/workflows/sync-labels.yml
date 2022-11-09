@@ -23,7 +23,7 @@ jobs:
       - name: Sync repository labels
         if: success()
         uses: crazy-max/ghaction-github-labeler@v4
-        with:
+        # with:
           # This is a hideous ternary equivalent so we only do a dry run unless
           # this workflow is triggered by the develop branch.
-          dry-run: ${{ github.ref_name == 'develop' && 'false' || 'true' }}
+          # dry-run: ${{ github.ref_name == 'develop' && 'false' || 'true' }}
